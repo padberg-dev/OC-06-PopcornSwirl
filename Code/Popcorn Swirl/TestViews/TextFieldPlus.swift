@@ -61,16 +61,10 @@ struct TextFieldView: UIViewRepresentable {
 
         
         @objc func textChanged(_ textField: UITextField) {
-            print("AAA")
             parent.text = textField.text ?? ""
         }
         
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            if string.isEmpty {
-//                print(String((textField.text ?? "").substring(to: textField.text!.count - 1)))
-            } else {
-                print(textField.text! + string)
-            }
             return true
         }
         
@@ -87,7 +81,6 @@ struct TextFieldView: UIViewRepresentable {
         }
         
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            print("NOE")
             textField.resignFirstResponder()
             return true
         }

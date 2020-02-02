@@ -53,8 +53,6 @@ extension MovieServices {
         
         let urlRequest = request.build()
         
-        print(urlRequest.url)
-        
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
             if error != nil {

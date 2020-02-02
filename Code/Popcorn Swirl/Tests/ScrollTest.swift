@@ -43,7 +43,6 @@ struct SwiftUIPagerView<Content: View & Identifiable>: View {
                     self.offset = value.translation.width - geometry.size.width * CGFloat(self.index)
                 })
                 .onEnded({ value in
-                    print(geometry.size)
                     
                     if abs(value.predictedEndTranslation.width) >= geometry.size.width / 2 {
                         var nextIndex: Int = (value.predictedEndTranslation.width < 0) ? 1 : -1

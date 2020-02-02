@@ -20,15 +20,12 @@ class MovieStore {
     }
     
     public func watchlistMovie(id: String, title: String?, isWatchlisted: Bool, isWatched: Bool, comment: String) {
-        print("::: SAVE")
         
         if id == "0" {
             return
-            
         }
         
         if let movie = findMovie(with: id) {
-            print("::: UPDATE ")
             // Does exist -> Update movie
             movie.id = id
             if title != nil {
@@ -42,7 +39,6 @@ class MovieStore {
         } else {
             // Does not exist -> Add new movie
             
-            print("::: CREATE NEW")
             let movie = Movie(context: AppDelegate.context)
             movie.id = id
             movie.title = title
@@ -75,7 +71,6 @@ class MovieStore {
         do {
             match = try context.fetch(request)
         } catch {
-            print("DATABASE ERROR")
         }
         self.movies = match
     }

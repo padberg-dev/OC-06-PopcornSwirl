@@ -60,7 +60,6 @@ struct SearchFilter: View {
                         .foregroundColor(.hex("B6B6B6"))
                         .onTapGesture {
                             self.searchBlocked.toggle()
-                            print("SEARCH")
                     }
             }
             .frame(height: 40)
@@ -77,21 +76,18 @@ struct SearchFilter: View {
                     .background(self.genresTitle != "All Genres" ? Color.first : Color.white)
                     .animation(.spring())
                     .onTapGesture {
-                        print("0")
                         self.changingFilter = self.changingFilter != .collection ? .collection : .none
                 }
                 FilterCard(title: self.genresTitle)
                     .background(self.searchBlocked ? Color.first : Color.white)
                     .animation(.spring())
                     .onTapGesture {
-                        print("1")
                         self.changingFilter = self.changingFilter != .genre ? .genre : .none
                 }
                 FilterCard(title: self.yearsTitle)
                     .background(self.searchBlocked ? Color.first : Color.white)
                     .animation(.spring())
                     .onTapGesture {
-                        print("2")
                         self.changingFilter = self.changingFilter != .year ? .year : .none
                 }
             }

@@ -20,7 +20,6 @@ class DataGroup: ObservableObject {
     var searchQuery: String = ""
     var pageNumber: Int = 1 {
         didSet {
-            print("PAGE NUMBER CHANGED TO: \(pageNumber)")
             searchViewModel?.changeSelectedPage(to: pageNumber)
         }
     }
@@ -79,8 +78,6 @@ class DataGroup: ObservableObject {
     }
     
     public func searchForMovies() {
-        
-        print("Search MOVIES with: \(searchQuery), page: \(pageNumber)")
         MovieServices.GET.searchMovie(for: searchQuery, page: pageNumber) { [weak self] response in
             if let res = response, let array = res.results {
                 DispatchQueue.main.async {
@@ -96,7 +93,6 @@ class DataGroup: ObservableObject {
     
     public func loadMovies() {
         
-        print("LOAD MOVIES from: .\(self.type)")
         MovieServices.GET.moviesGroup(of: type) { [weak self] response in
             if let res = response, let array = res.results {
                 DispatchQueue.main.async {
@@ -116,7 +112,6 @@ class DataGroup: ObservableObject {
         
         let loadGroup = DispatchGroup()
         
-        var started: Int = getCount()
         var ended: Int = 0
         
         for i in 0 ..< getCount() {
@@ -137,7 +132,6 @@ class DataGroup: ObservableObject {
                 DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 0.5) {
                     loadGroup.leave()
                     ended += 1
-                    print("TYPE \(self.type) | \(ended)-\(started)")
                     
                     self.imageData[i] = Image(uiImage: UIImage(data: data) ?? UIImage())
                 }
@@ -146,7 +140,6 @@ class DataGroup: ObservableObject {
         }
         
         loadGroup.notify(queue: .main) {
-            print("!!! ALL IS DOWNLOADED FROM: .\(self.type)")
             self.isLoadingImages = false
         }
     }

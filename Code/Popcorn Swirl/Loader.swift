@@ -112,9 +112,8 @@ struct OnPath<P: Shape, S: Shape>: Shape {
         let offset = self.offset.truncatingRemainder(dividingBy: 1)
         let offset2 = (1 + offset + 0.001).truncatingRemainder(dividingBy: 1)
         let path = pathShape.path(in: rect)
-        let (point, angle) = path.pointAndAngle(at: offset2)
+        let (point, _) = path.pointAndAngle(at: offset2)
         
-        print(point)
         let shapePath = shape.path(in: rect)
         let size = shapePath.boundingRect.size
         let head = shapePath

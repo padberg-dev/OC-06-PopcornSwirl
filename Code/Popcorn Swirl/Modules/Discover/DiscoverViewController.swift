@@ -21,11 +21,10 @@ class DiscoverViewController: BaseViewController<DiscoverViewUI> {
         
         prepareUI(view: DiscoverViewUI(viewModel: viewModel))
         viewModel.loadAll()
-        MovieStore.shared
+        _ = MovieStore.shared
         
         navigationDisposable = viewModel.$movieChosen.sink { movieId in
             if movieId.isEmpty { return }
-            print("Movie chosen: \(movieId)")
             
             let vc = DetailViewController()
             vc.assignMovieId(id: movieId)

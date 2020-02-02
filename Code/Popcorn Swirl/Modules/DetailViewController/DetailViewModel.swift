@@ -195,7 +195,6 @@ class DetailViewModel: ObservableObject {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 0.5) {
                     
-                    print("image downloaded")
                     self.castsImage[i] = Image(uiImage: UIImage(data: data) ?? UIImage())
                 }
                 

@@ -30,7 +30,6 @@ class SearchViewModel: ObservableObject {
     var lastSearchQuery: String = ""
     
     public func searchTapped() {
-        print("SEARCH")
         if searchQuery.count >= 3 && lastSearchQuery != searchQuery {
             selectedPage = 1
         }
@@ -43,7 +42,6 @@ class SearchViewModel: ObservableObject {
     }
     
     private func loadData() {
-        print("LOAD MOVIES")
         searchDataGroup.searchQuery = searchQuery
         searchDataGroup.pageNumber = selectedPage
         searchDataGroup.searchForMovies()

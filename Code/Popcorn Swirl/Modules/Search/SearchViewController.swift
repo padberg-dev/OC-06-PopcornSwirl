@@ -23,7 +23,6 @@ class SearchViewController: BaseViewController<SearchViewUI> {
         
         navigationDisposable = viewModel.$movieChosen.sink { movieId in
             if movieId.isEmpty { return }
-            print("Movie chosen: \(movieId)")
             
             let vc = DetailViewController()
             vc.assignMovieId(id: movieId)

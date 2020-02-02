@@ -79,10 +79,10 @@ struct FollowEffect: GeometryEffect {
             // in the path: the current position (1) and a point very close behind in the path (2).
             
             let pt1 = percentPoint(prcnt)
-            let pt2 = percentPoint(prcnt - 0.01)
+//            let pt2 = percentPoint(prcnt - 0.01)
             
-            let a = pt2.x - pt1.x
-            let b = pt2.y - pt1.y
+//            let a = pt2.x - pt1.x
+//            let b = pt2.y - pt1.y
             
 //                        let angle = a < 0 ? atan(Double(b / a)) : atan(Double(b / a)) - Double.pi
             

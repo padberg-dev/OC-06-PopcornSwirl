@@ -36,7 +36,6 @@ struct Test2: View {
                 DragGesture()
                     .onChanged { gesture in
                         self.offset = gesture.translation.height
-                        print("!!!")
                     }
 //                .onEnded({ gesture in
 //                    withAnimation {
