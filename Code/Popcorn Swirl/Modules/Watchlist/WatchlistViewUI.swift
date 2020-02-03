@@ -27,8 +27,6 @@ struct WatchlistViewUI: View {
                 
                 List {
                     ForEach(0 ..< viewModel.filteredMovies.count, id: \.self) { id in
-                        
-                        
                         VStack(spacing: 0) {
                             HStack(spacing: 0) {
                                 Text(self.viewModel.getTitleFor(index: id))
@@ -36,7 +34,25 @@ struct WatchlistViewUI: View {
                                 
                                 Spacer()
                                 
-                                //                            Text(self.viewModel.getAllSwitches(for: id))
+                                HStack {
+                                    if self.viewModel.isWatched(index: id) {
+                                        Image("ticket_empty")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                    }
+                                    
+                                    if self.viewModel.isWatchlisted(index: id) {
+                                        Image("popcorn_empty")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                    }
+                                    
+                                    if self.viewModel.hasComment(index: id) {
+                                        Image("comment_empty")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                    }
+                                }
                             }
                             
                             if self.viewModel.getComment(for: id) != nil {

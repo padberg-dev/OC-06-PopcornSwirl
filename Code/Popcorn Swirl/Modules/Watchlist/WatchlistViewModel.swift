@@ -28,7 +28,19 @@ class WatchlistViewModel: ObservableObject {
     }
     
     public func getTitleFor(index: Int) -> String {
-        return movies[index].title ?? ""
+        return filteredMovies[index].title ?? ""
+    }
+    
+    public func isWatched(index: Int) -> Bool {
+        return filteredMovies[index].isWatched
+    }
+    
+    public func isWatchlisted(index: Int) -> Bool {
+        return filteredMovies[index].isWatchlisted
+    }
+    
+    public func hasComment(index: Int) -> Bool {
+        return filteredMovies[index].hasComment
     }
     
     public func getAllSwitches(for index: Int) -> String {
