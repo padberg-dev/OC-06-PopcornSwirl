@@ -36,6 +36,11 @@ class MovieStore {
             movie.hasComment = !comment.isEmpty
             movie.comment = comment
             movie.updateDate = Date()
+            
+            if !isWatchlisted && !isWatched && comment.isEmpty {
+                // Can be deleted
+                AppDelegate.context.delete(movie)
+            }
         } else {
             // Does not exist -> Add new movie
             
